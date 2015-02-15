@@ -1,0 +1,27 @@
+package models;
+
+public class DealsSeed {
+private String dealId;
+private String dealName;
+private String merchant;
+private String type;
+private String category;
+private double originalPrice;
+private double discount;
+private double offerPrice;
+private double siteRevenue;
+private double cac;
+private double merchantRevenue;
+
+deal_id          | varchar(100) | NO   | PRI | NULL    |       |
+| deal_name        | varchar(200) | YES  |     | NULL    |       |
+| merchant         | varchar(100) | YES  |     | NULL    |       |
+| deal_type        | varchar(100) | YES  |     | NULL    |       |
+| deal_category    | varchar(100) | YES  |     | NULL    |       |
+| original_price   | double       | YES  |     | NULL    |       |
+| discount         | double       | YES  |     | NULL    |       |
+| offer_price      | double       | YES  |     | NULL    |       |
+| site_revenue     | double       | YES  |     | NULL    |       |
+| cac              | double       | YES  |     | NULL    |       |
+| merchant_revenue | double 
+}

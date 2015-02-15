@@ -1,0 +1,32 @@
+package models;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.activation.DataSource;
+
+import play.db.*;
+
+import com.jamonapi.utils.Logger;
+import com.mysql.jdbc.Statement;
+
+public class DataGrabber {
+
+	public static String getData() throws SQLException {
+		ResultSet rs = DB.executeQuery("Select * from customer_seed");
+		System.out.println("I am in");
+		while (rs.next()) {
+			Customer customer = new Customer();
+			customer.setId(rs.getString(1));
+			customer.setEmail(rs.getString(2));
+			customer.setSex(rs.getString(3));
+			customer.setAge(rs.getString(4));
+			customer.setCountry(rs.getString(5));
+			customer.setFbLogin(rs.getString(6));
+			return ++rs.getString(3)+rs.getString(4)+rs.getString(5)+rs.getString(6);
+		}
+		return null;
+	}
+
+}

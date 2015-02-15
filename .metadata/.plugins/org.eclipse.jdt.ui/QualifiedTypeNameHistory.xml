@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="models.Customer"/>
+<fullyQualifiedTypeName name="com.google.gson.JsonArray"/>
+<fullyQualifiedTypeName name="groovy.json.JsonBuilder"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="models.Transaction"/>
+<fullyQualifiedTypeName name="models.DealsSeed"/>
+<fullyQualifiedTypeName name="javax.activation.DataSource"/>
+<fullyQualifiedTypeName name="models.ds.DataSource"/>
+<fullyQualifiedTypeName name="models.Product"/>
+<fullyQualifiedTypeName name="org.codehaus.groovy.classgen.asm.OptimizingStatementWriter.StatementMeta"/>
+<fullyQualifiedTypeName name="java.beans.Statement"/>
+<fullyQualifiedTypeName name="org.h2.util.StatementBuilder"/>
+<fullyQualifiedTypeName name="org.hibernate.cfg.annotations.QueryBinder"/>
+</qualifiedTypeNameHistroy>

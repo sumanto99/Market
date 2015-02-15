@@ -1,0 +1,16 @@
+package models;
+
+public class Transaction {
+	private int transactionId;
+	private String purchaseDate;
+	private int unitsSelfPurchased;
+	private int unitsGiftPurchased;
+	private int marketingCpc;
+	private String orderCancelled;
+	private String repeatPurchase;
+	private String source;
+	private String platform;
+	private String deal_id;
+	private String customerId;
+	
+}

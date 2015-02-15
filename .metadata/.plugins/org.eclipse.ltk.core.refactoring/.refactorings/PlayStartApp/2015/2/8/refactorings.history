@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;play&apos;&#x0A;- Original project: &apos;PlayStartApp&apos;&#x0A;- Destination element: &apos;play&apos;&#x0A;- Original elements:&#x0A;     play-plugins-mailer_2.9.1-2.0.4.jar&#x0A;     scala-library-2.11.0-M1.jar&#x0A;     play_2.10.jar" description="Copy files" element1="lib/play/play-plugins-mailer_2.9.1-2.0.4.jar" element2="lib/play/scala-library-2.11.0-M1.jar" element3="lib/play/play_2.10.jar" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1424004773119" target="/play-zentask/lib/play" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,26 @@
+package models;
+
+import groovy.json.JsonBuilder;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import models.ds.DataSource;
+
+public class DataGrabber {
+
+	public static String getData() throws SQLException {
+		
+		return jsonConvertor(custList);
+	}
+
+	private static String jsonConvertor(List<Customer> custList) {
+		JsonBuilder builder = new JsonBuilder(custList);
+		return builder.toPrettyString();
+	}
+	
+	private static String getCustomerData(){
+		DataSource name = new DataSource();
+	}
+
+}

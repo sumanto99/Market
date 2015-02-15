@@ -1,0 +1,55 @@
+package models;
+
+import groovy.json.JsonBuilder;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import models.ds.DataSource;
+
+public class DataGrabber {
+
+	public static String getData() throws SQLException {
+		
+		return jsonConvertor(custList);
+	}
+
+	private static String jsonConvertor(Object custList) {
+		JsonBuilder builder = new JsonBuilder(custList);
+		return builder.toPrettyString();
+	}
+	
+	private static String getCustomerData() throws SQLException{
+		DataSource ds = new DataSource();
+		return jsonConvertor(ds.customerDs());
+	}
+	
+	private static String getCustomerData(String id) throws SQLException{
+		DataSource ds = new DataSource();
+		return jsonConvertor(ds.customerDs(id));
+	}
+	
+	private static String getDealsData() throws SQLException{
+		DataSource ds = new DataSource();
+		return jsonConvertor(ds.dealsDs());
+	}
+	private static String getDealsData(String id) throws SQLException{
+		DataSource ds = new DataSource();
+		return jsonConvertor(ds.dealsDs(id));
+	}
+	
+	private static String getTransactionData() throws SQLException{
+		DataSource ds = new DataSource();
+		return jsonConvertor(ds.transactionDs());
+	}
+	private static String getTransactionData(int id) throws SQLException{
+		DataSource ds = new DataSource();
+		return jsonConvertor(ds.transactionDs(id));
+	}
+	
+	public static String getProduct() throws SQLException{
+		DataSource ds = new DataSource();
+		return jsonConvertor(ds.product());
+	}
+
+}

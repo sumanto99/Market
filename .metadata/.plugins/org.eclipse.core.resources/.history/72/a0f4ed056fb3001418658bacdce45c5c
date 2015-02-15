@@ -1,0 +1,40 @@
+package models;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.activation.DataSource;
+
+import play.db.*;
+
+import com.jamonapi.utils.Logger;
+import com.mysql.jdbc.Statement;
+
+public class DataGrabber {
+
+	public static String getData() throws SQLException {
+		ResultSet rs = DB.executeQuery("Select * from customer_seed");
+		List<Customer> custList = new ArrayList<Customer>();
+		while (rs.next()) {
+			Customer customer = new Customer();
+			customer.setId(rs.getString(1));
+			customer.setEmail(rs.getString(2));
+			customer.setSex(rs.getString(3));
+			customer.setAge(rs.getString(4));
+			customer.setCountry(rs.getString(5));
+			customer.setFbLogin(rs.getString(6));
+			custList.add(customer);
+			return jsonConvertor(customer);
+		}
+		return null;
+	}
+
+	private static String jsonConvertor(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

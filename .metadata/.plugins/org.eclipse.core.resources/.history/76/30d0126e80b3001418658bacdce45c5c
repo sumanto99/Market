@@ -1,0 +1,98 @@
+package models;
+
+import java.util.Map;
+
+public class Transaction {
+	private int transactionId;
+	private String purchaseDate;
+	private int unitsSelfPurchased;
+	private int unitsGiftPurchased;
+	private int marketingCpc;
+	private String orderCancelled;
+	private String repeatPurchase;
+	private String source;
+	private String platform;
+	private String deal_id;
+	private String customerId;
+	private Customer customer;
+	private Map<String ,DealsSeed> dealsIdToDeal;
+	public int getTransactionId() {
+		return transactionId;
+	}
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
+	}
+	public String getPurchaseDate() {
+		return purchaseDate;
+	}
+	public void setPurchaseDate(String purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
+	public int getUnitsSelfPurchased() {
+		return unitsSelfPurchased;
+	}
+	public void setUnitsSelfPurchased(int unitsSelfPurchased) {
+		this.unitsSelfPurchased = unitsSelfPurchased;
+	}
+	public int getUnitsGiftPurchased() {
+		return unitsGiftPurchased;
+	}
+	public void setUnitsGiftPurchased(int unitsGiftPurchased) {
+		this.unitsGiftPurchased = unitsGiftPurchased;
+	}
+	public int getMarketingCpc() {
+		return marketingCpc;
+	}
+	public void setMarketingCpc(int marketingCpc) {
+		this.marketingCpc = marketingCpc;
+	}
+	public String getOrderCancelled() {
+		return orderCancelled;
+	}
+	public void setOrderCancelled(String orderCancelled) {
+		this.orderCancelled = orderCancelled;
+	}
+	public String getRepeatPurchase() {
+		return repeatPurchase;
+	}
+	public void setRepeatPurchase(String repeatPurchase) {
+		this.repeatPurchase = repeatPurchase;
+	}
+	public String getSource() {
+		return source;
+	}
+	public void setSource(String source) {
+		this.source = source;
+	}
+	public String getPlatform() {
+		return platform;
+	}
+	public void setPlatform(String platform) {
+		this.platform = platform;
+	}
+	public String getDeal_id() {
+		return deal_id;
+	}
+	public void setDeal_id(String deal_id) {
+		this.deal_id = deal_id;
+	}
+	public String getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+	public Map<String, Customer> getCustomerIdToCustomer() {
+		return customerIdToCustomer;
+	}
+	public void setCustomerIdToCustomer(Map<String, Customer> customerIdToCustomer) {
+		this.customerIdToCustomer = customerIdToCustomer;
+	}
+	public Map<String, DealsSeed> getDealsIdToDeal() {
+		return dealsIdToDeal;
+	}
+	public void setDealsIdToDeal(Map<String, DealsSeed> dealsIdToDeal) {
+		this.dealsIdToDeal = dealsIdToDeal;
+	}
+	
+}

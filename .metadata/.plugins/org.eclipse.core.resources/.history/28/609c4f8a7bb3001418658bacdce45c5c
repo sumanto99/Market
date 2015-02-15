@@ -1,0 +1,12 @@
+package models;
+
+import java.util.List;
+import java.util.Map;
+
+public class Product {
+	private List<Customer> customers;
+	private List<Transaction> transactions;
+	private List<DealsSeed> dealsSeeds;
+	Transaction transaction = new Transaction();
+	transaction.
+}

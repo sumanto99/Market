@@ -1,0 +1,143 @@
+package models.ds;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import models.Customer;
+import models.DealsSeed;
+import models.Product;
+import models.Transaction;
+import play.db.DB;
+
+public class DataSource {
+	public List<Customer> customerDs() throws SQLException {
+		ResultSet rs = DB.executeQuery("Select * from customer_seed");
+		List<Customer> custList = new ArrayList<Customer>();
+		Customer customer = null;
+		while (rs.next()) {
+			customer = new Customer();
+			customer.setId(rs.getString("customer_id"));
+			customer.setEmail(rs.getString("email_id"));
+			customer.setSex(rs.getString("gender"));
+			customer.setAge(rs.getString("age_group"));
+			customer.setCountry(rs.getString("location"));
+			customer.setFbLogin(rs.getString("fb_login"));
+			custList.add(customer);
+		}
+		return custList;
+	}
+
+	public Customer customerDs(String custId) throws SQLException {
+		ResultSet rs = DB
+				.executeQuery("Select * from customer_seed where customer_id = \""+ custId+"\"");
+		Customer customer = null;
+		while (rs.next()) {
+			customer = new Customer();
+			customer.setId(rs.getString("customer_id"));
+			customer.setEmail(rs.getString("email_id"));
+			customer.setSex(rs.getString("gender"));
+			customer.setAge(rs.getString("age_group"));
+			customer.setCountry(rs.getString("location"));
+			customer.setFbLogin(rs.getString("fb_login"));
+		}
+		return customer;
+	}
+
+	public List<Transaction> transactionDs() throws SQLException {
+		ResultSet rs = DB.executeQuery("Select * from transaction_seed");
+		List<Transaction> transcations = new ArrayList<Transaction>();
+		Transaction transcation = new Transaction();
+		while (rs.next()) {
+			transcation = new Transaction();
+			transcation.setTransactionId(rs.getInt("transaction_id"));
+			transcation.setPurchaseDate(rs.getString("purchase_date"));
+			transcation
+					.setUnitsSelfPurchased(rs.getInt("units_self_purchased"));
+			transcation
+					.setUnitsGiftPurchased(rs.getInt("units_gift_purchased"));
+			transcation.setMarketingCpc(rs.getDouble("marketing_cpc"));
+			transcation.setOrderCancelled(rs.getString("order_cancelled"));
+			transcation.setRepeatPurchase(rs.getString("repeat_purchase"));
+			transcation.setPlatform(rs.getString("platform"));
+			transcation.setDeal_id(rs.getString("deal_id"));
+			transcation.setCustomerId(rs.getString("customer_id"));
+			transcation.setCustomer(customerDs(transcation.getCustomerId()));
+			transcation.setDeals(dealsDs(transcation.getDeal_id()));
+			transcations.add(transcation);
+		}
+		return transcations;
+	}
+
+	public Transaction transactionDs(int id) throws SQLException {
+		ResultSet rs = DB
+				.executeQuery("Select * from transaction_seed where transaction_id = \""+ id+"\"");
+		Transaction transcation = null;
+		while (rs.next()) {
+			transcation = new Transaction();
+			transcation.setTransactionId(rs.getInt("transaction_id"));
+			transcation.setPurchaseDate(rs.getString("purchase_date"));
+			transcation
+					.setUnitsSelfPurchased(rs.getInt("units_self_purchased"));
+			transcation
+					.setUnitsGiftPurchased(rs.getInt("units_gift_purchased"));
+			transcation.setMarketingCpc(rs.getDouble("marketing_cpc"));
+			transcation.setOrderCancelled(rs.getString("order_cancelled"));
+			transcation.setRepeatPurchase(rs.getString("repeat_purchase"));
+			transcation.setPlatform(rs.getString("platform"));
+			transcation.setDeal_id(rs.getString("deal_id"));
+			transcation.setCustomerId(rs.getString("customer_id"));
+			transcation.setCustomer(customerDs(transcation.getCustomerId()));
+			transcation.setDeals(dealsDs(transcation.getDeal_id()));
+		}
+		return transcation;
+	}
+
+	public List<DealsSeed> dealsDs() throws SQLException {
+		ResultSet rs = DB.executeQuery("Select * from deals_seed");
+		List<DealsSeed> deals = new ArrayList<DealsSeed>();
+		DealsSeed deal = null;
+		while (rs.next()) {
+			deal = new DealsSeed();
+			deal.setDealId(rs.getString("deal_id"));
+			deal.setDealName(rs.getString("deal_name"));
+			deal.setMerchant(rs.getString("merchant"));
+			deal.setType(rs.getString("deal_type"));
+			deal.setCategory(rs.getString("deal_category"));
+			deal.setOriginalPrice(rs.getDouble("original_price"));
+			deal.setDiscount(rs.getDouble("discount"));
+			deal.setOfferPrice(rs.getDouble("offer_price"));
+			deal.setSiteRevenue(rs.getDouble("site_revenue"));
+			deal.setMerchantRevenue(rs.getDouble("merchant_revenue"));
+			deals.add(deal);
+		}
+		return deals;
+	}
+
+	public DealsSeed dealsDs(String id) throws SQLException {
+		ResultSet rs = DB
+				.executeQuery("Select * from deals_seed where deal_id = \""+ id+"\"");
+		DealsSeed deal = null;
+		while (rs.next()) {
+			deal = new DealsSeed();
+			deal.setDealId(rs.getString("deal_id"));
+			deal.setDealName(rs.getString("deal_name"));
+			deal.setMerchant(rs.getString("merchant"));
+			deal.setType(rs.getString("deal_type"));
+			deal.setCategory(rs.getString("deal_category"));
+			deal.setOriginalPrice(rs.getDouble("original_price"));
+			deal.setDiscount(rs.getDouble("discount"));
+			deal.setOfferPrice(rs.getDouble("offer_price"));
+			deal.setSiteRevenue(rs.getDouble("site_revenue"));
+			deal.setMerchantRevenue(rs.getDouble("merchant_revenue"));
+		}
+		return deal;
+	}
+
+	public Product product() throws SQLException {
+		Product product = new Product();
+		product.setTransactions(transactionDs());
+		return product;
+	}
+}
